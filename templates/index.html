@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Azure Migrate Analyzer</title>
+</head>
+<body>
+    <h2>Upload Azure Migrate Assessment (.xlsx)</h2>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".xlsx" required>
+        <input type="submit" value="Upload">
+    </form>
+    {% if tables %}
+        <h3>Analysis Results</h3>
+        {{ tables|safe }}
+        <br>
+        <a href="/download/{{ download_link }}">Download Excel Report</a>
+        <br>
+        <a href="/download/{{ csv_link }}">Download CSV for Power BI</a>
+    {% endif %}
+</body>
+</html>
